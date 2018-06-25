@@ -1,1 +1,1 @@
-console.log('It works!')
+const button = document.querySelector('button')
