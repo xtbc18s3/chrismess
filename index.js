@@ -7,7 +7,7 @@ const updateHeading = function(ev) {
   const flickName = f.flickName.value
 
   const list = document.querySelector('#flicks')
-  list.innerHTML += `<p>${flickName}</p>`
+  list.innerHTML += `<li>${flickName}</li>`
 
   f.reset()
 }
