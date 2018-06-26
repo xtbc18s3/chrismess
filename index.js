@@ -1,8 +1,9 @@
-const button = document.querySelector('button')
+const form = document.querySelector('form#flickForm')
 
-const changeHeading = function() {
-  const heading = document.querySelector('p.fancy')
+const changeHeading = function(ev) {
+  ev.preventDefault()
+  const heading = document.querySelector('h1')
   heading.textContent = 'Click!'
 }
 
-button.addEventListener('click', changeHeading)
+form.addEventListener('submit', changeHeading)
