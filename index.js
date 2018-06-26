@@ -8,6 +8,8 @@ const updateHeading = function(ev) {
 
   const list = document.querySelector('#flicks')
   list.innerHTML += `<p>${flickName}</p>`
+
+  f.reset()
 }
 
 form.addEventListener('submit', updateHeading)
