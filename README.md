@@ -1,5 +1,7 @@
 # Chrismess
 
+The first project for Xtern Bootcamp 2018 Session 3. This project uses vanilla JavaScript/ES2015+.
+
 ## Day 1 Homework
 
 * Make the button change the text of the heading (the `<h1>`).
