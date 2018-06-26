@@ -1,6 +1,6 @@
 # Chrismess
 
-The first project for Xtern Bootcamp 2018 Session 3.
+The first project for Xtern Bootcamp 2018 Session 3. This project uses vanilla JavaScript (ES2015+).
 
 ## Homework
 
