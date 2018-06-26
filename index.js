@@ -4,7 +4,7 @@ const changeHeading = function(ev) {
   ev.preventDefault()
   const f = ev.target
   const flicksDiv = document.querySelector('#flicks')
-  flicksDiv.textContent += ' ' + f.flickName.value
+  flicksDiv.innerHTML += '<p>' + f.flickName.value + '</p>'
 }
 
 form.addEventListener('submit', changeHeading)
