@@ -1,7 +1,7 @@
 const button = document.querySelector('button')
 
 const updateHeading = function() {
-  const heading = document.querySelector('h1')
+  const heading = document.querySelector('p.fancy')
   heading.textContent = 'Click!'
 }
 
