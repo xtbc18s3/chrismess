@@ -2,6 +2,24 @@
 
 The first project for Xtern Bootcamp 2018 Session 3. This project uses vanilla JavaScript (ES2015+).
 
+## Day 3 Homework
+
+* In addition to building a list item and adding it to the DOM (as we are now), also store each flick in an array.
+
+### Bonus Credit
+
+* Add a _delete_ button to each list item that removes it from the list.
+
+### Super Mega Bonus Credit
+
+* Remove the flick from the array as well.
+
+### Super Mega Bonus Credit Hyper Fighting
+
+* Add a _favorite_ button to each flick as well that lets you mark your favorites.
+* Display favorites differently.
+* Be sure the favorites are recorded appropriately in the array.
+
 ## Day 2 Homework
 
 * Give the function `updateHeading` a more accurate name.
