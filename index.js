@@ -45,6 +45,7 @@ class App {
     list.appendChild(item)
 
     f.reset()
+    f.flickName.focus()
   }
 }
 
