@@ -1,18 +1,18 @@
 const form = document.querySelector('form#flickForm')
 
+const renderProperty = function(name, value) {
+  const span = document.createElement('span')
+  span.classList.add(name)
+  span.textContent = value
+  return span
+}
+
 const handleSubmit = function(ev) {
   ev.preventDefault()
   const f = ev.target
 
-  const flickName = f.flickName.value
-  const flickSpan = document.createElement('span')
-  flickSpan.classList.add('name')
-  flickSpan.textContent = flickName
-
-  const chrisName = f.chrisName.value
-  const chrisSpan = document.createElement('span')
-  chrisSpan.classList.add('chris')
-  chrisSpan.textContent = chrisName
+  const flickSpan = renderProperty('name', f.flickName.value)
+  const chrisSpan = renderProperty('chris', f.chrisName.value)
 
   const item = document.createElement('li')
   item.classList.add('flick')
