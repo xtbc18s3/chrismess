@@ -7,17 +7,33 @@ const renderProperty = function(name, value) {
   return span
 }
 
+const renderItem = function(flick) {
+  const item = document.createElement('li')
+  item.classList.add('flick')
+
+  // get the list of properties
+  const properties = Object.keys(flick)
+
+  // loop over the properties
+  properties.forEach(function(propertyName) {
+    // build a span, and append it to the list
+    const span = renderProperty(propertyName, flick[propertyName])
+    item.appendChild(span)
+  })
+
+  return item
+}
+
 const handleSubmit = function(ev) {
   ev.preventDefault()
   const f = ev.target
 
-  const flickSpan = renderProperty('name', f.flickName.value)
-  const chrisSpan = renderProperty('chris', f.chrisName.value)
+  const flick = {
+    name: f.flickName.value,
+    chris: f.chrisName.value,
+  }
 
-  const item = document.createElement('li')
-  item.classList.add('flick')
-  item.appendChild(flickSpan)
-  item.appendChild(chrisSpan)
+  const item = renderItem(flick)
 
   const list = document.querySelector('#flicks')
   list.appendChild(item)
