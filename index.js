@@ -1,6 +1,8 @@
 class App {
   constructor() {
     this.flicks = []
+    this.list = document.querySelector('#flicks')
+
     const form = document.querySelector('form#flickForm')
     form.addEventListener('submit', (ev) => {
       ev.preventDefault()
@@ -29,7 +31,17 @@ class App {
       item.appendChild(span)
     })
 
+    // add a delete button
+    const deleteButton = document.createElement('button')
+    deleteButton.textContent = 'delete'
+    deleteButton.addEventListener('click', (_ev) => this.removeFlick(item))
+    item.appendChild(deleteButton)
+
     return item
+  }
+
+  removeFlick(item) {
+    this.list.removeChild(item)
   }
 
   handleSubmit(ev) {
@@ -43,9 +55,7 @@ class App {
     this.flicks.push(flick)
 
     const item = this.renderItem(flick)
-
-    const list = document.querySelector('#flicks')
-    list.appendChild(item)
+    this.list.appendChild(item)
 
     f.reset()
     f.flickName.focus()
