@@ -46,19 +46,30 @@ class App {
     return actions
   }
 
-  renderItem(flick) {
-    const item = document.createElement('li')
-    item.classList.add('flick')
+  renderProperties(flick, item) {
+    const div = document.createElement('div')
+    div.classList.add('info')
 
     // get the list of properties
     const properties = Object.keys(flick)
 
     // loop over the properties
     properties.forEach((propertyName) => {
-      // build a span, and append it to the list
+      // build a span, and append it to the div
       const span = this.renderProperty(propertyName, flick[propertyName])
-      item.appendChild(span)
+      div.appendChild(span)
     })
+
+    return div
+  }
+
+  renderItem(flick) {
+    const item = document.createElement('li')
+    item.classList.add('flick')
+
+    // add all the properties
+    const properties = this.renderProperties(flick, item)
+    item.appendChild(properties)
 
     // add action buttons
     const actions = this.renderActionButtons(flick, item)

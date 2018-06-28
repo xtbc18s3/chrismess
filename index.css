@@ -80,7 +80,7 @@ input[type="number"]:focus {
 }
 
 button[type="submit"] {
-  background-color: #ff3340;
+  background-color: #44aa33;
   color: white;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
   height: auto;
@@ -103,14 +103,74 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #ff3340cc;
+  background-color: #44bb33;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
 
-.chris {
+span.chris {
   display: block;
+  font-size: 0.75em;
+  color: #999;
+}
+span.favorite {
+  display: none;
 }
 
-.fav {
-  background-color: gold;
+ul#flicks {
+  list-style: none;
+  margin: 1rem;
+  padding: 0;
+  border: 1px solid #eee;
+}
+
+.flick {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flick:nth-of-type(odd) {
+  background-color: #f6f6f6;
+}
+
+.flick.fav {
+  background-color: #ffff66;
+}
+
+.info {
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.actions button {
+  border: 0;
+  padding: 0.75rem 0.8rem;
+  transition: background-color .25s ease-out, transform .1s ease-out;
+  cursor: pointer;
+}
+.actions button:hover {
+  transform: scale(1.1);
+}
+
+button.remove {
+  background-color: #cc3344;
+  color: white;
+}
+button.remove:hover {
+  background-color: #ee3344;
+}
+
+button.fav {
+  background-color: #ffbb22;
+  color: black;
+}
+button.fav:hover {
+  background-color: #ffdd33;
+  color: black;
 }
