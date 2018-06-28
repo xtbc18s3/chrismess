@@ -34,14 +34,23 @@ class App {
     // add a delete button
     const deleteButton = document.createElement('button')
     deleteButton.textContent = 'delete'
-    deleteButton.addEventListener('click', (_ev) => this.removeFlick(item))
+    deleteButton
+      .addEventListener(
+        'click',
+        (_ev) => this.removeFlick(flick, item)
+      )
     item.appendChild(deleteButton)
 
     return item
   }
 
-  removeFlick(item) {
+  removeFlick(flick, item) {
+    // remove from the UI
     this.list.removeChild(item)
+
+    // remove from the array
+    const i = this.flicks.indexOf(flick)
+    this.flicks.splice(i, 1)
   }
 
   handleSubmit(ev) {
