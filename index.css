@@ -110,3 +110,7 @@ button[type="submit"]:hover {
 .chris {
   display: block;
 }
+
+.fav {
+  background-color: gold;
+}

@@ -37,7 +37,7 @@ class App {
     deleteButton
       .addEventListener(
         'click',
-        (_ev) => this.removeFlick(flick)
+        (_ev) => this.removeFlick(flick, item)
       )
     item.appendChild(deleteButton)
 
@@ -47,22 +47,19 @@ class App {
     favButton
       .addEventListener(
         'click',
-        (_ev) => this.toggleFavorite(flick)
+        (_ev) => this.toggleFavorite(flick, item)
       )
     item.appendChild(favButton)
 
     return item
   }
 
-  toggleFavorite(flick) {
-    flick.favorite = !flick.favorite
+  toggleFavorite(flick, item) {
+    // update both the UI and the array
+    flick.favorite = item.classList.toggle('fav')
   }
 
-  removeFlick(flick) {
-    // grab the list item
-    // (note: requires a polyfill in Internet Explorer)
-    const item = ev.target.closest('.flick')
-
+  removeFlick(flick, item) {
     // remove from the UI
     this.list.removeChild(item)
 
