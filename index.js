@@ -1,6 +1,6 @@
 class App {
   constructor() {
-    this.flicks = []
+    this.load()
     this.list = document.querySelector('#flicks')
 
     const form = document.querySelector('form#flickForm')
@@ -8,6 +8,17 @@ class App {
       ev.preventDefault()
       this.handleSubmit(ev)
     })
+  }
+
+  save() {
+    // store the flicks array in localStorage
+    localStorage.setItem('flicks', JSON.stringify(this.flicks))
+  }
+
+  load() {
+    // load flicks from localStorage
+    const flicks = JSON.parse(localStorage.getItem('flicks'))
+    this.flicks = flicks || []
   }
 
   renderProperty(name, value) {
@@ -81,6 +92,9 @@ class App {
   toggleFavorite(flick, item) {
     // update both the UI and the array
     flick.favorite = item.classList.toggle('fav')
+
+    // update localStorage
+    this.save()
   }
 
   removeFlick(flick, item) {
@@ -90,6 +104,9 @@ class App {
     // remove from the array
     const i = this.flicks.indexOf(flick)
     this.flicks.splice(i, 1)
+
+    // update localStorage
+    this.save()
   }
 
   handleSubmit(ev) {
@@ -108,6 +125,7 @@ class App {
 
     f.reset()
     f.flickName.focus()
+    this.save()
   }
 }
 
