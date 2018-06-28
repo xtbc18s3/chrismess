@@ -41,7 +41,21 @@ class App {
       )
     item.appendChild(deleteButton)
 
+    // add a favorite button
+    const favButton = document.createElement('button')
+    favButton.textContent = 'favorite'
+    favButton
+      .addEventListener(
+        'click',
+        (_ev) => this.toggleFavorite(flick)
+      )
+    item.appendChild(favButton)
+
     return item
+  }
+
+  toggleFavorite(flick) {
+    flick.favorite = !flick.favorite
   }
 
   removeFlick(flick) {
@@ -63,6 +77,7 @@ class App {
     const flick = {
       name: f.flickName.value,
       chris: f.chrisName.value,
+      favorite: false,
     }
 
     this.flicks.push(flick)
