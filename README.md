@@ -2,6 +2,14 @@
 
 The first project for Xtern Bootcamp 2018 Session 3. This project uses vanilla JavaScript (ES2015+).
 
+## Day 4 Homework
+
+* Try the official [React Tutorial](https://reactjs.org/tutorial/tutorial.html)
+
+### Super Mega Bonus Credit
+
+* Have a great weekend!
+
 ## Day 3 Homework
 
 * In addition to building a list item and adding it to the DOM (as we are now), also store each flick in an array.
