@@ -37,14 +37,18 @@ class App {
     deleteButton
       .addEventListener(
         'click',
-        (_ev) => this.removeFlick(flick, item)
+        (_ev) => this.removeFlick(flick)
       )
     item.appendChild(deleteButton)
 
     return item
   }
 
-  removeFlick(flick, item) {
+  removeFlick(flick) {
+    // grab the list item
+    // (note: requires a polyfill in Internet Explorer)
+    const item = ev.target.closest('.flick')
+
     // remove from the UI
     this.list.removeChild(item)
 
