@@ -111,3 +111,7 @@ button[type="submit"]:hover {
 .chris {
   display: block;
 }
+
+span.favorite {
+  display: none;
+}
