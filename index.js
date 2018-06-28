@@ -2,12 +2,24 @@ class App {
   constructor() {
     this.list = document.querySelector('#flicks')
     this.flicks = []
+    this.load()
 
     const form = document.querySelector('form#flickForm')
     form.addEventListener('submit', (ev) => {
       ev.preventDefault()
       this.handleSubmit(ev)
     })
+  }
+
+  save() {
+    // store the flicks array in localStorage
+    localStorage.setItem('flicks', JSON.stringify(this.flicks))
+  }
+
+  load() {
+    const flicks = JSON.parse(localStorage.getItem('flicks'))
+
+    flicks.forEach(flick => this.addFlick(flick))
   }
 
   renderProperty(name, value) {
@@ -81,6 +93,9 @@ class App {
   toggleFavorite(flick, item) {
     // update the UI and the array
     flick.favorite = item.classList.toggle('fav')
+
+    //update localStorage
+    this.save()
   }
 
   removeFlick(flick, item) {
@@ -90,6 +105,26 @@ class App {
     // remove it from the array
     const i = this.flicks.indexOf(flick)
     this.flicks.splice(i, 1)
+
+    // update localStorage
+    this.save()
+  }
+
+  addFlick(flick) {
+    // add it to the array
+    this.flicks.push(flick)
+    this.save()
+
+
+    const item = this.renderItem(flick)
+
+    // mark it as a favorite, if applicable
+    if (flick.favorite) {
+      item.classList.add('fav')
+    }
+
+    // add it to the DOM
+    this.list.appendChild(item)
   }
 
   handleSubmit(ev) {
@@ -101,11 +136,7 @@ class App {
       favorite: false,
     }
 
-    this.flicks.push(flick)
-
-    const item = this.renderItem(flick)
-
-    this.list.appendChild(item)
+    this.addFlick(flick)
 
     f.reset()
     f.flickName.focus()
