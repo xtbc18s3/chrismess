@@ -55,7 +55,8 @@ class App {
   }
 
   toggleFavorite(flick, item) {
-    flick.favorite = !flick.favorite
+    // update the UI and the array
+    flick.favorite = item.classList.toggle('fav')
   }
 
   removeFlick(flick, item) {

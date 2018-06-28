@@ -115,3 +115,7 @@ button[type="submit"]:hover {
 span.favorite {
   display: none;
 }
+
+.fav {
+  background-color: gold;
+}
