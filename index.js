@@ -17,6 +17,35 @@ class App {
     return span
   }
 
+  renderActionButtons(flick, item) {
+    const actions = document.createElement('div')
+    actions.classList.add('actions')
+
+    // add a delete button
+    const deleteButton = document.createElement('button')
+    deleteButton.classList.add('remove')
+    deleteButton.textContent = 'delete'
+    deleteButton
+      .addEventListener(
+        'click',
+        (_ev) => this.removeFlick(flick, item)
+      )
+    actions.appendChild(deleteButton)
+
+    // add a favorite button
+    const favButton = document.createElement('button')
+    favButton.classList.add('fav')
+    favButton.textContent = 'favorite'
+    favButton
+      .addEventListener(
+        'click',
+        (_ev) => this.toggleFavorite(flick, item)
+      )
+    actions.appendChild(favButton)
+
+    return actions
+  }
+
   renderItem(flick) {
     const item = document.createElement('li')
     item.classList.add('flick')
@@ -31,25 +60,9 @@ class App {
       item.appendChild(span)
     })
 
-    // add a delete button
-    const deleteButton = document.createElement('button')
-    deleteButton.textContent = 'delete'
-    deleteButton
-      .addEventListener(
-        'click',
-        (_ev) => this.removeFlick(flick, item)
-      )
-    item.appendChild(deleteButton)
-
-    // add a favorite button
-    const favButton = document.createElement('button')
-    favButton.textContent = 'favorite'
-    favButton
-      .addEventListener(
-        'click',
-        (_ev) => this.toggleFavorite(flick, item)
-      )
-    item.appendChild(favButton)
+    // add action buttons
+    const actions = this.renderActionButtons(flick, item)
+    item.appendChild(actions)
 
     return item
   }
