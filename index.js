@@ -1,7 +1,9 @@
 class App {
   constructor() {
-    this.load()
     this.list = document.querySelector('#flicks')
+
+    this.flicks = []
+    this.load()
 
     const form = document.querySelector('form#flickForm')
     form.addEventListener('submit', (ev) => {
@@ -18,7 +20,11 @@ class App {
   load() {
     // load flicks from localStorage
     const flicks = JSON.parse(localStorage.getItem('flicks'))
-    this.flicks = flicks || []
+
+    if (flicks) {
+      // add each flick to the UI
+      flicks.forEach(flick => this.addFlick(flick))
+    }
   }
 
   renderProperty(name, value) {
@@ -109,6 +115,20 @@ class App {
     this.save()
   }
 
+  addFlick(flick) {
+    this.flicks.push(flick)
+
+    const item = this.renderItem(flick)
+
+    // mark it as a favorite, if applicable
+    if (flick.favorite) {
+      item.classList.add('fav')
+    }
+
+    // add it to the DOM
+    this.list.appendChild(item)
+  }
+
   handleSubmit(ev) {
     const f = ev.target
 
@@ -118,14 +138,11 @@ class App {
       favorite: false,
     }
 
-    this.flicks.push(flick)
-
-    const item = this.renderItem(flick)
-    this.list.appendChild(item)
+    this.addFlick(flick)
+    this.save()
 
     f.reset()
     f.flickName.focus()
-    this.save()
   }
 }
 
