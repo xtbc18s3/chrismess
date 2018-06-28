@@ -41,7 +41,7 @@ class App {
     // add a delete button
     const deleteButton = document.createElement('button')
     deleteButton.classList.add('remove')
-    deleteButton.textContent = 'delete'
+    deleteButton.innerHTML = '<i class="far fa-trash-alt" title="remove flick"></i>'
     deleteButton
       .addEventListener(
         'click',
@@ -52,7 +52,7 @@ class App {
     // add a favorite button
     const favButton = document.createElement('button')
     favButton.classList.add('fav')
-    favButton.textContent = 'favorite'
+    favButton.innerHTML = '<i class="fas fa-star" title="toggle favorite"></i>'
     favButton
       .addEventListener(
         'click',
